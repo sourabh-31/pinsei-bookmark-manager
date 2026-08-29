@@ -1,1 +1,232 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/manrope.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: "Manrope", var(--font-sans-fallback);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-surface-hover: var(--surface-hover);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-primary-glow: var(--primary-glow);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-background: var(--background);
+}
+
+:root {
+  --font-sans-fallback: ui-sans-serif, system-ui, sans-serif;
+
+  /* Base surfaces */
+  --background: oklch(0.958 0.003 300);
+  --foreground: oklch(0.22 0.005 285);
+  --foreground-secondary: oklch(0.32 0.006 285);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.005 285);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.005 285);
+
+  /* Brand */
+  --primary: oklch(0.55 0.216 4);
+  --primary-glow: oklch(0.63 0.23 10);
+  --primary-foreground: oklch(0.99 0 0);
+
+  /* Soft pink brand tint - used for hover/selected chips, icon wells, menu-item hover */
+  --accent: oklch(0.955 0.012 5);
+  --accent-foreground: oklch(0.45 0.19 4);
+
+  --secondary: oklch(0.965 0.002 286);
+  --secondary-foreground: oklch(0.32 0.006 285);
+
+  /* Neutral surfaces */
+  --muted: oklch(0.965 0.002 286);
+  --muted-foreground: oklch(0.6 0.006 285);
+  --surface-hover: oklch(0.972 0.003 300);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.93 0.003 300);
+  --border-subtle: oklch(0.945 0.003 300);
+  --input: oklch(0.925 0.003 300);
+  --ring: oklch(0.66 0.2 8);
+
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--primary-glow),
+    var(--primary)
+  );
+
+  /* Folder / tag tint pairs (background, foreground). Index 0 mirrors --accent. */
+  --tint-0-bg: var(--accent);
+  --tint-0-fg: var(--accent-foreground);
+  --tint-1-bg: oklch(0.955 0.022 255);
+  --tint-1-fg: oklch(0.45 0.15 258);
+  --tint-2-bg: oklch(0.955 0.028 150);
+  --tint-2-fg: oklch(0.42 0.12 155);
+  --tint-3-bg: oklch(0.96 0.03 85);
+  --tint-3-fg: oklch(0.46 0.11 72);
+  --tint-4-bg: oklch(0.955 0.022 305);
+  --tint-4-fg: oklch(0.45 0.16 307);
+  --tint-5-bg: oklch(0.955 0.018 205);
+  --tint-5-fg: oklch(0.44 0.11 212);
+
+  /* Shared shadow recipes, reused across cards, menus, modals and toasts */
+  --shadow-card:
+    0 1px 2px oklch(0 0 0 / 0.03), 0 14px 34px -24px oklch(0.3 0.02 300 / 0.45);
+  --shadow-card-flash:
+    0 0 0 2px var(--primary), 0 14px 34px -20px oklch(0.55 0.216 4 / 0.5);
+  --shadow-skeleton-row: 0 8px 20px -16px oklch(0.3 0.02 300 / 0.5);
+  --shadow-cta: 0 8px 20px -12px var(--primary);
+  --shadow-cta-sm: 0 6px 16px -10px var(--primary);
+  --shadow-menu:
+    0 4px 6px -1px oklch(0 0 0 / 0.1), 0 2px 4px -2px oklch(0 0 0 / 0.1);
+  --shadow-menu-lg: 0 12px 32px -14px oklch(0.25 0.02 300 / 0.4);
+  --shadow-modal:
+    0 10px 15px -3px oklch(0 0 0 / 0.1), 0 4px 6px -4px oklch(0 0 0 / 0.1);
+  --shadow-modal-lg: 0 24px 60px -20px oklch(0.25 0.02 300 / 0.45);
+  --shadow-toast:
+    0 12px 32px -12px oklch(0.25 0.02 300 / 0.35),
+    0 2px 6px -3px oklch(0 0 0 / 0.12);
+  --shadow-bulkbar: 0 18px 44px -16px oklch(0.25 0.02 300 / 0.4);
+  --shadow-field: 0 1px 2px 0 oklch(0 0 0 / 0.05);
+  --shadow-avatar-ring:
+    0 0 0 2px oklch(1 0 0), 0 0 0 4px oklch(0.66 0.2 8 / 0.55);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    letter-spacing: -0.011em;
+  }
+  html {
+    @apply font-sans;
+    font-size: 16px;
+  }
+  :focus-visible {
+    outline: 2px solid oklch(0.66 0.2 8 / 0.55);
+    outline-offset: 2px;
+  }
+}
+
+@utility bg-gradient-primary {
+  background-image: var(--gradient-primary);
+}
+
+/* App shell background: soft radial washes over the base surface */
+@utility bg-app-shell {
+  background-image:
+    radial-gradient(
+      900px 420px at 12% -6%,
+      oklch(0.985 0.012 350) 0%,
+      transparent 62%
+    ),
+    radial-gradient(
+      760px 380px at 88% -4%,
+      oklch(0.98 0.014 265) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      700px 500px at 70% 108%,
+      oklch(0.985 0.008 320) 0%,
+      transparent 62%
+    );
+  background-color: var(--background);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+@utility shadow-card-flash {
+  box-shadow: var(--shadow-card-flash);
+}
+@utility shadow-skeleton-row {
+  box-shadow: var(--shadow-skeleton-row);
+}
+@utility shadow-cta {
+  box-shadow: var(--shadow-cta);
+}
+@utility shadow-cta-sm {
+  box-shadow: var(--shadow-cta-sm);
+}
+@utility shadow-menu {
+  box-shadow: var(--shadow-menu);
+}
+@utility shadow-menu-lg {
+  box-shadow: var(--shadow-menu-lg);
+}
+@utility shadow-modal {
+  box-shadow: var(--shadow-modal);
+}
+@utility shadow-modal-lg {
+  box-shadow: var(--shadow-modal-lg);
+}
+@utility shadow-toast {
+  box-shadow: var(--shadow-toast);
+}
+@utility shadow-bulkbar {
+  box-shadow: var(--shadow-bulkbar);
+}
+@utility shadow-field {
+  box-shadow: var(--shadow-field);
+}
+@utility shadow-avatar-ring {
+  box-shadow: var(--shadow-avatar-ring);
+}
+
+/* Per-index folder/tag tint pairs, e.g. className="tint-2" */
+@utility tint-0 {
+  background: var(--tint-0-bg);
+  color: var(--tint-0-fg);
+}
+@utility tint-1 {
+  background: var(--tint-1-bg);
+  color: var(--tint-1-fg);
+}
+@utility tint-2 {
+  background: var(--tint-2-bg);
+  color: var(--tint-2-fg);
+}
+@utility tint-3 {
+  background: var(--tint-3-bg);
+  color: var(--tint-3-fg);
+}
+@utility tint-4 {
+  background: var(--tint-4-bg);
+  color: var(--tint-4-fg);
+}
+@utility tint-5 {
+  background: var(--tint-5-bg);
+  color: var(--tint-5-fg);
+}
+
+@utility text-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}

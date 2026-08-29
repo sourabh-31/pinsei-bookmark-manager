@@ -1,75 +1,38 @@
-# React + TypeScript + Vite
+# Pinsei
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fast, keyboard-friendly bookmark manager built with React, TypeScript, and Supabase.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Folders** — organize bookmarks into custom folders, plus built-in smart folders for unsorted and favourite bookmarks
+- **Favourites** — mark any bookmark as a favourite for quick access
+- **Search palette** — a command-style modal (⌘K-style) to jump between pages, folders, and bookmarks, or run quick actions
+- **Bulk import** — paste a list of URLs (or an HTML/text export) to import many bookmarks at once, with automatic page-title fetching and duplicate filtering
+- **Duplicate detection** — warns when adding a bookmark whose URL already exists, instead of creating silent duplicates
+- **Bulk actions** — select multiple bookmarks to move, favourite, or delete in one step
+- **Trash / Bin** — deleted bookmarks and folders are soft-deleted and recoverable from the Bin, including bookmarks removed as part of a folder deletion
+- **Move & rename** — move bookmarks between folders and rename folders without losing their contents
+- **Auth** — user accounts and per-user data backed by Supabase
+- **Responsive layout** — desktop header navigation with a dedicated mobile nav bar
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/) for tooling and dev server
+- [React Router](https://reactrouter.com/) for routing
+- [TanStack Query](https://tanstack.com/query) for data fetching and caching
+- [Supabase](https://supabase.com/) for auth, database, and backend
+- [Tailwind CSS](https://tailwindcss.com/) + [Radix UI](https://www.radix-ui.com/) / [shadcn](https://ui.shadcn.com/) components
 
-## Expanding the ESLint configuration
+## Development
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+pnpm install
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Generating Supabase types
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+pnpm dlx supabase gen types typescript --linked --schema public > src/types/database.types.ts
 ```
