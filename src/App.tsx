@@ -2,7 +2,6 @@ import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router";
 
 import { ToastStack } from "@/components/shared/ToastStack";
-import { RouteProgressBar, RouteSuspenseFallback } from "@/components/shared/RouteProgressBar";
 import { routeModules } from "@/lib/routeModules";
 
 import AppLayout from "./layout";
@@ -19,8 +18,7 @@ const NotFound = lazy(routeModules.notFound);
 function App() {
   return (
     <SessionProvider>
-      <RouteProgressBar />
-      <Suspense fallback={<RouteSuspenseFallback />}>
+      <Suspense fallback={null}>
         <Routes>
           <Route path="/auth" element={<Auth />} />
 

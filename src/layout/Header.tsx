@@ -21,7 +21,6 @@ import {
 import { openModal } from "@/lib/modalEvent";
 import { toast } from "@/lib/toastEvent";
 import { routeModules } from "@/lib/routeModules";
-import { startRouteProgress } from "@/lib/routeProgressEvent";
 import { useSession, useSignOut } from "@/features/auth/hooks/useAuth";
 import { exportBookmarksAsJson, initials } from "@/lib/bookmarkUtils";
 import { useBookmarks } from "@/features/bookmarks/hooks/useBookmarks";
@@ -160,9 +159,6 @@ export default function Header() {
               to={item.to}
               onMouseEnter={item.prefetch}
               onFocus={item.prefetch}
-              onClick={() => {
-                if (!active) startRouteProgress();
-              }}
               className={cn(
                 "relative flex items-center gap-1.5 rounded-xl text-xs font-medium",
                 active ? "text-primary" : "text-muted-foreground",

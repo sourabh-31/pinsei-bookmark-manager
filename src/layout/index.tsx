@@ -1,10 +1,8 @@
-import { useEffect } from "react";
 import { Navigate, Outlet, useLocation } from "react-router";
 import Header from "./Header";
 import MobileNav from "./MobileNav";
 import ModalManager from "@/components/shared/ModalManager";
 import { useSession } from "@/features/auth/hooks/useAuth";
-import { finishRouteProgress } from "@/lib/routeProgressEvent";
 import {
   ErrorBoundary,
   SectionErrorFallback,
@@ -13,13 +11,6 @@ import {
 function AppLayout() {
   const { session, isLoading } = useSession();
   const { pathname } = useLocation();
-
-  // React Router wraps <Link> navigations in a transition, so this layout (and the
-  // Suspense boundary above it) only re-renders once the new lazy page has resolved -
-  // making this the reliable "navigation settled" signal for the progress bar.
-  useEffect(() => {
-    finishRouteProgress();
-  }, [pathname]);
 
   if (isLoading) return null;
 

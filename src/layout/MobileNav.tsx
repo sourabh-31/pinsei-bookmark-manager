@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router";
 import { Bookmark, Folder, House, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { routeModules } from "@/lib/routeModules";
-import { startRouteProgress } from "@/lib/routeProgressEvent";
 
 const TABS = [
   {
@@ -48,9 +47,6 @@ export default function MobileNav() {
             to={tab.to}
             onMouseEnter={tab.prefetch}
             onFocus={tab.prefetch}
-            onClick={() => {
-              if (!active) startRouteProgress();
-            }}
             className={cn(
               "flex flex-col items-center gap-0.75 rounded-xl px-1 py-1.5 text-[10px] font-semibold",
               active ? "bg-accent text-primary" : "text-muted-foreground",
