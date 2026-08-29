@@ -6,10 +6,10 @@ import { startRouteProgress } from "@/lib/routeProgressEvent";
 
 const TABS = [
   {
-    to: "/",
+    to: "/home",
     label: "Home",
     icon: House,
-    match: (p: string) => p === "/",
+    match: (p: string) => p === "/home",
     prefetch: routeModules.home,
   },
   {
