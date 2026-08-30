@@ -56,6 +56,12 @@ export async function signOut() {
   if (error) throw error;
 }
 
+export async function updateUserPassword(password: string) {
+  const { data, error } = await supabase.auth.updateUser({ password });
+  if (error) throw error;
+  return data;
+}
+
 export interface FetchBookmarksOptions {
   favourite?: boolean;
   unsorted?: boolean;

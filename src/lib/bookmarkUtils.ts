@@ -31,15 +31,20 @@ export function initials(title: string) {
     .join("");
 }
 
-/** Normalizes a URL for duplicate detection: strips protocol, www, query/hash and trailing slashes. */
+/**
+ * Normalizes a URL for duplicate detection: strips protocol, www, hash and
+ * trailing slashes. The query string is kept — many sites (e.g. YouTube's
+ * ?v=) encode the actual resource identity there, so stripping it would
+ * make unrelated pages on the same path collide as "duplicates".
+ */
 export function normalizeUrl(u: string) {
   return (u || "")
     .trim()
     .toLowerCase()
     .replace(/^https?:\/\//, "")
     .replace(/^www\./, "")
-    .replace(/[?#].*$/, "")
-    .replace(/\/+$/, "");
+    .replace(/#.*$/, "")
+    .replace(/\/+(?=\?|$)/, "");
 }
 
 export function cleanUrl(u: string) {

@@ -5,6 +5,7 @@ import {
   signInWithGoogle,
   signOut,
   signUp,
+  updateUserPassword,
 } from "@/lib/api";
 
 export { useSession } from "@/features/auth/store/sessionContext";
@@ -48,5 +49,11 @@ export function useGoogleSignIn() {
 export function useSignOut() {
   return useMutation({
     mutationFn: signOut,
+  });
+}
+
+export function useUpdatePassword() {
+  return useMutation({
+    mutationFn: (password: string) => updateUserPassword(password),
   });
 }

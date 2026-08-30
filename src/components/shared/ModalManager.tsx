@@ -11,6 +11,7 @@ import { EditBookmarkModal } from "@/features/bookmarks/components/EditBookmarkM
 import { MoveModal } from "@/features/bookmarks/components/MoveModal";
 import { NewFolderModal } from "@/features/folders/components/NewFolderModal";
 import { SearchModal } from "@/features/search/SearchModal";
+import { ChangePasswordModal } from "@/features/auth/components/ChangePasswordModal";
 
 const modals: Record<Modal, React.ComponentType<{ payload?: unknown }>> = {
   "add-modal": AddBookmarkModal,
@@ -23,6 +24,7 @@ const modals: Record<Modal, React.ComponentType<{ payload?: unknown }>> = {
   "new-folder-modal": NewFolderModal,
   "rename-folder-modal": RenameFolderModal,
   "search-modal": SearchModal,
+  "change-password-modal": ChangePasswordModal,
 };
 
 export default function ModalManager() {

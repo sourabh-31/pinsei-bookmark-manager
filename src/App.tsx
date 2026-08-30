@@ -12,6 +12,7 @@ const Bookmarks = lazy(routeModules.bookmarks);
 const Folders = lazy(routeModules.folders);
 const FolderDetail = lazy(routeModules.folderDetail);
 const Bin = lazy(routeModules.bin);
+const Account = lazy(routeModules.account);
 const Auth = lazy(routeModules.auth);
 const NotFound = lazy(routeModules.notFound);
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="/folders" element={<Folders />} />
             <Route path="/folders/:folderId" element={<FolderDetail />} />
             <Route path="/bin" element={<Bin />} />
+            <Route path="/account" element={<Account />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />

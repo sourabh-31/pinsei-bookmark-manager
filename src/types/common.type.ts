@@ -10,7 +10,8 @@ export type Modal =
   | "move-modal"
   | "new-folder-modal"
   | "rename-folder-modal"
-  | "search-modal";
+  | "search-modal"
+  | "change-password-modal";
 
 export interface Bookmark {
   id: string;

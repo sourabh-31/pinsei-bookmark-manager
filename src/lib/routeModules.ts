@@ -8,6 +8,7 @@ export const routeModules = {
   folders: () => import("@/pages/Folders"),
   folderDetail: () => import("@/pages/FolderDetail"),
   bin: () => import("@/pages/Bin"),
+  account: () => import("@/pages/Account"),
   auth: () => import("@/pages/Auth"),
   notFound: () => import("@/pages/NotFound"),
 } as const;

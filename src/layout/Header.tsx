@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import {
   Bookmark,
   Download,
@@ -9,6 +9,7 @@ import {
   Search,
   Trash2,
   Upload,
+  User,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { openModal } from "@/lib/modalEvent";
@@ -61,6 +63,7 @@ const NAV_ITEMS = [
 
 export default function Header() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const signOut = useSignOut();
   const { session } = useSession();
   const { data: bookmarkRows } = useBookmarks();
@@ -202,6 +205,12 @@ export default function Header() {
                 </span>
               )}
             </div>
+            {!user?.is_anonymous && (
+              <DropdownMenuItem onSelect={() => navigate("/account")}>
+                <User />
+                Account
+              </DropdownMenuItem>
+            )}
             <DropdownMenuItem
               onSelect={() =>
                 openModal(
@@ -219,6 +228,7 @@ export default function Header() {
               <Download />
               Export bookmarks
             </DropdownMenuItem>
+            <DropdownMenuSeparator />
             <DropdownMenuItem onSelect={handleSignOut}>
               <LogOut />
               Sign out
