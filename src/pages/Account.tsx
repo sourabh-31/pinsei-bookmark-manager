@@ -21,20 +21,20 @@ export default function Account() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <h1 className="mt-5 text-base font-semibold">Account</h1>
+      <h1 className="mt-5 text-base font-semibold">Account Settings</h1>
 
       <div className="mt-4 flex max-w-125 flex-col gap-3">
         <div className="rounded-2xl bg-card p-5 shadow-card">
-          <div className="flex items-center gap-3.5">
-            <span className="flex size-14 shrink-0 items-center justify-center rounded-full bg-accent text-lg font-semibold text-accent-foreground shadow-avatar-ring">
+          <div className="flex items-center gap-3">
+            <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-semibold text-accent-foreground shadow-avatar-ring">
               {avatarLabel}
             </span>
-            <div className="flex min-w-0 flex-col gap-1">
-              <p className="overflow-hidden text-ellipsis whitespace-nowrap text-[15px] font-semibold text-foreground">
+            <div className="flex min-w-0 items-baseline gap-1.5">
+              <p className="overflow-hidden text-ellipsis whitespace-nowrap text-[14px] font-semibold text-foreground">
                 {fullName || "Unnamed"}
               </p>
-              <span className="w-fit rounded-full bg-muted px-2 py-0.5 text-[10.5px] font-semibold text-muted-foreground">
-                {isGoogle ? "Google account" : "Email & password"}
+              <span className="shrink-0 text-[11.5px] font-medium text-muted-foreground">
+                · {isGoogle ? "Google" : "Email & password"}
               </span>
             </div>
           </div>

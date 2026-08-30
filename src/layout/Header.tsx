@@ -208,7 +208,7 @@ export default function Header() {
             {!user?.is_anonymous && (
               <DropdownMenuItem onSelect={() => navigate("/account")}>
                 <User />
-                Account
+                Account Settings
               </DropdownMenuItem>
             )}
             <DropdownMenuItem
