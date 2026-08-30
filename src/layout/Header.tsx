@@ -22,7 +22,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { openModal } from "@/lib/modalEvent";
 import { toast } from "@/lib/toastEvent";
-import { routeModules } from "@/lib/routeModules";
 import { useSession, useSignOut } from "@/features/auth/hooks/useAuth";
 import { exportBookmarksAsJson, initials } from "@/lib/bookmarkUtils";
 import { useBookmarks } from "@/features/bookmarks/hooks/useBookmarks";
@@ -36,28 +35,24 @@ const NAV_ITEMS = [
     label: "Home",
     icon: House,
     match: (p: string) => p === "/home",
-    prefetch: routeModules.home,
   },
   {
     to: "/folders",
     label: "Folders",
     icon: Folder,
     match: (p: string) => p.startsWith("/folders"),
-    prefetch: routeModules.folders,
   },
   {
     to: "/all-bookmarks",
     label: "All Bookmarks",
     icon: Bookmark,
     match: (p: string) => p === "/all-bookmarks",
-    prefetch: routeModules.bookmarks,
   },
   {
     to: "/bin",
     label: "Bin",
     icon: Trash2,
     match: (p: string) => p === "/bin",
-    prefetch: routeModules.bin,
   },
 ];
 
@@ -160,8 +155,6 @@ export default function Header() {
             <Link
               key={item.to}
               to={item.to}
-              onMouseEnter={item.prefetch}
-              onFocus={item.prefetch}
               className={cn(
                 "relative flex items-center gap-1.5 rounded-xl text-xs font-medium",
                 active ? "text-primary" : "text-muted-foreground",
