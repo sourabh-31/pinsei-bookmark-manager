@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Check } from "lucide-react";
 import { EmptyState } from "@/components/shared/EmptyState";
+import { PageLoader } from "@/components/shared/PageLoader";
 import { BulkBar } from "@/components/shared/BulkBar";
 import { cn } from "@/lib/utils";
 import {
@@ -96,7 +97,7 @@ export default function Bookmarks() {
     : "Save a link once and it shows up here, ready to file into a folder whenever you want.";
   const emptyCta = isFiltered ? "Add bookmark" : "Add your first bookmark";
 
-  if (isLoading) return null;
+  if (isLoading) return <PageLoader />;
 
   return (
     <div className="flex flex-1 flex-col">

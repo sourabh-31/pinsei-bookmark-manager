@@ -8,6 +8,7 @@ import {
   Trash2,
 } from "lucide-react";
 import { EmptyState } from "@/components/shared/EmptyState";
+import { PageLoader } from "@/components/shared/PageLoader";
 import { BulkBar } from "@/components/shared/BulkBar";
 import { dbRowToBookmark, faviconFor, tintClass } from "@/lib/bookmarkUtils";
 import { cn } from "@/lib/utils";
@@ -161,7 +162,7 @@ export default function Bin() {
     } satisfies ConfirmActionPayload);
   };
 
-  if (foldersLoading || bookmarksLoading) return null;
+  if (foldersLoading || bookmarksLoading) return <PageLoader />;
 
   return (
     <div className="flex flex-1 flex-col">

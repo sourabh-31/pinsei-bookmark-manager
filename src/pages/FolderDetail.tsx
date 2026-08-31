@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { ArrowLeft, Check, Folder, Heart, Inbox, Plus } from "lucide-react";
 import { EmptyState } from "@/components/shared/EmptyState";
+import { PageLoader } from "@/components/shared/PageLoader";
 import { BulkBar } from "@/components/shared/BulkBar";
 import { dbRowToBookmark, tintClass } from "@/lib/bookmarkUtils";
 import { UNSORTED, FAVOURITES } from "@/types/common.type";
@@ -106,7 +107,7 @@ export default function FolderDetail() {
     emptyCta = `Add to ${name}`;
   }
 
-  if (foldersLoading || bookmarksLoading) return null;
+  if (foldersLoading || bookmarksLoading) return <PageLoader />;
 
   return (
     <div className="flex flex-1 flex-col">

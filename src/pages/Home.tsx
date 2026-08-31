@@ -1,5 +1,6 @@
 import { Folder, Pin } from "lucide-react";
 import { EmptyState } from "@/components/shared/EmptyState";
+import { PageLoader } from "@/components/shared/PageLoader";
 import { HomePanel } from "@/features/home/HomePanel";
 import { dbRowToBookmark, tintClass } from "@/lib/bookmarkUtils";
 import { UNSORTED, FAVOURITES } from "@/types/common.type";
@@ -27,7 +28,7 @@ export default function Home() {
     { value: unsorted.length, label: "Unsorted" },
   ];
 
-  if (isLoading || foldersLoading) return null;
+  if (isLoading || foldersLoading) return <PageLoader />;
 
   const isBlank = bookmarks.length === 0;
 
