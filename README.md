@@ -1,21 +1,21 @@
-# Pinsei
+# 📌 Pinsei
 
 A fast, keyboard-friendly bookmark manager built with React, TypeScript, and Supabase.
 
-## Features
+## ✨ Features
 
-- **Folders** — organize bookmarks into custom folders, plus built-in smart folders for unsorted and favourite bookmarks
-- **Favourites** — mark any bookmark as a favourite for quick access
-- **Search palette** — a command-style modal (⌘K-style) to jump between pages, folders, and bookmarks, or run quick actions
-- **Bulk import** — paste a list of URLs (or an HTML/text export) to import many bookmarks at once, with automatic page-title fetching and duplicate filtering
-- **Duplicate detection** — warns when adding a bookmark whose URL already exists, instead of creating silent duplicates
-- **Bulk actions** — select multiple bookmarks to move, favourite, or delete in one step
-- **Trash / Bin** — deleted bookmarks and folders are soft-deleted and recoverable from the Bin, including bookmarks removed as part of a folder deletion
-- **Move & rename** — move bookmarks between folders and rename folders without losing their contents
-- **Auth** — user accounts and per-user data backed by Supabase
-- **Responsive layout** — desktop header navigation with a dedicated mobile nav bar
+- 📁 **Folders**: organize bookmarks into custom folders, plus built-in smart folders for unsorted and favourite bookmarks
+- ⭐ **Favourites**: mark any bookmark as a favourite for quick access
+- 🔍 **Search palette**: a command-style modal (⌘K-style) to jump between pages, folders, and bookmarks, or run quick actions
+- 📥 **Bulk import**: paste a list of URLs (or an HTML/text export) to import many bookmarks at once, with automatic page-title fetching and duplicate filtering
+- 🚫 **Duplicate detection**: warns when adding a bookmark whose URL already exists, instead of creating silent duplicates
+- ✅ **Bulk actions**: select multiple bookmarks to move, favourite, or delete in one step
+- 🗑️ **Trash / Bin**: deleted bookmarks and folders are soft-deleted and recoverable from the Bin, including bookmarks removed as part of a folder deletion
+- ✏️ **Move & rename**: move bookmarks between folders and rename folders without losing their contents
+- 🔐 **Auth**: user accounts and per-user data backed by Supabase
+- 📱 **Responsive layout**: desktop header navigation with a dedicated mobile nav bar
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/) for tooling and dev server
@@ -24,7 +24,7 @@ A fast, keyboard-friendly bookmark manager built with React, TypeScript, and Sup
 - [Supabase](https://supabase.com/) for auth, database, and backend
 - [Tailwind CSS](https://tailwindcss.com/) + [Radix UI](https://www.radix-ui.com/) / [shadcn](https://ui.shadcn.com/) components
 
-## Development
+## 🚀 Development
 
 ```bash
 pnpm install
@@ -36,3 +36,11 @@ pnpm dev
 ```bash
 pnpm dlx supabase gen types typescript --linked --schema public > src/types/database.types.ts
 ```
+
+## ☕ Support
+
+If you find Dropsei useful, consider [buying me a coffee](https://www.buymeacoffee.com/sourabh0003).
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
