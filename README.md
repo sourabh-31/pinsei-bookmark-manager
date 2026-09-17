@@ -1,6 +1,6 @@
 # 📌 Pinsei
 
-A fast, keyboard-friendly bookmark manager built with React, TypeScript, and Supabase.
+A fast bookmark manager built with React, TypeScript, and Supabase.
 
 ## ✨ Features
 
