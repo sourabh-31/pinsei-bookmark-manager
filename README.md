@@ -39,7 +39,7 @@ pnpm dlx supabase gen types typescript --linked --schema public > src/types/data
 
 ## ☕ Support
 
-If you find Dropsei useful, consider [buying me a coffee](https://www.buymeacoffee.com/sourabh0003).
+If you find Pinsei useful, consider [buying me a coffee](https://www.buymeacoffee.com/sourabh0003).
 
 ## 📄 License
 
